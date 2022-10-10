@@ -6,12 +6,16 @@ This allows you to perform fire and forget http APIs similar to the old `X-Amz-I
 ## How to use
 This repository is basically an example repo showing how to deploy and integrate with this async handler.
 
-Each function in the `serverless.yml` file presents a different way to interact with  
+Each function in the `serverless.yml` file presents a different way to interact with the layer.
+
+* `longRunning` - This function demonstrates an ASYNC handler that runs way after a typical HTTP API would be required to return a response. It is also using the built in layer `proxy` handler that will take care of passing the `event` and `context` object to the async handler.
+* `customResponse` - This function demonstrates an async handler that uses the built in layer `proxy` handler and customizes the response message.
+* `customHandler` - This function demonstrates a custom handler paired with an `ASYNC_HANDLER`. This also demonstrates how to use the `sendArgs` method exposed by our layer.
 
 ## Layer details
-This layer includes an external extension that is monitoring for an http event from the internal lambda function that forwards the event and context information.
+This layer includes an external extension that is monitoring for an http event from the internal lambda function that forwards the event and context information. It also includes a lambda handler you can use to send quick responses back to API gateway as well as a `sendArgs` method that allows you use a custom handler.
 
-Once the event and context information is received the extension will then execute the `ASYNC_HANDLER`
+Once the event and context information is received the extension will then execute the `ASYNC_HANDLER` function supplied in our environment variables.
 
 ## Environment variables
 
