@@ -22,4 +22,4 @@ Once the event and context information is received the extension will then execu
 | Name | Description | Required (Y/N) | Default |
 |--|--|--|--|
 | `ASYNC_HANDLER` | This is the path to your async handler. This is similar to the normal `handler` property in the function description in the `serverless.yml` file. | `Y` | N/A |
-| `CUSTOM_RES` | If you want to use the built-in `proxy` handler but you would like to customize the http response you can do that via this variable. (Example on `customResponse` function 😉) | `Y` | N/A |
+| `CUSTOM_RES` | If you want to use the built-in `proxy` handler but you would like to customize the http response you can do that via this variable. (Example on `customResponse` function 😉) | `N` | N/A |
